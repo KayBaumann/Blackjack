@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "G:\\Blackjack\\blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +22,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameWindow.xaml.cs",
-              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\GameWindow.xaml.cs",
-              "RelativeDocumentMoniker": "blackjack\\GameWindow.xaml.cs",
-              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\GameWindow.xaml.cs",
-              "RelativeToolTip": "blackjack\\GameWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T18:41:23.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameWindow.xaml",
-              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\GameWindow.xaml",
-              "RelativeDocumentMoniker": "blackjack\\GameWindow.xaml",
-              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\GameWindow.xaml",
-              "RelativeToolTip": "blackjack\\GameWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-25T18:41:14.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "blackjack\\MainWindow.xaml.cs",
-              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\MainWindow.xaml.cs",
-              "RelativeToolTip": "blackjack\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwAgAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T18:38:43.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "blackjack\\MainWindow.xaml",
-              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\MainWindow.xaml",
-              "RelativeToolTip": "blackjack\\MainWindow.xaml",
+              "Title": "App.xaml",
+              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\App.xaml",
+              "RelativeDocumentMoniker": "blackjack\\App.xaml",
+              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\App.xaml",
+              "RelativeToolTip": "blackjack\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-25T18:38:39.971Z",
+              "WhenOpened": "2025-06-25T18:52:56.362Z",
               "EditorCaption": ""
             }
           ]

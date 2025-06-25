@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\Blackjack\blackjack\blackjack\App.xaml
-4-2051630586
+41161123038
 
-14437461821
+14673780209
 2031770534592
-GameWindow.xaml;LoginWindow.xaml;MainWindow.xaml;RegisterWindow.xaml;
+views\GameWindow.xaml;views\LoginWindow.xaml;views\MainWindow.xaml;views\RegisterWindow.xaml;
 
 False
 

@@ -58,12 +58,6 @@ G:\Blackjack\blackjack\blackjack\bin\Debug\net8.0-windows\runtimes\win-x86\nativ
 G:\Blackjack\blackjack\blackjack\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 G:\Blackjack\blackjack\blackjack\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\blackjack.csproj.AssemblyReference.cache
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\LoginWindow.baml
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\MainWindow.baml
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\RegisterWindow.baml
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\LoginWindow.g.cs
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\MainWindow.g.cs
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\RegisterWindow.g.cs
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\App.g.cs
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\blackjack_MarkupCompile.cache
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\blackjack.g.resources
@@ -78,5 +72,11 @@ G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\refint\blackjack.dll
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\blackjack.pdb
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\blackjack.genruntimeconfig.cache
 G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\ref\blackjack.dll
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\GameWindow.baml
-G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\GameWindow.g.cs
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\GameWindow.baml
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\LoginWindow.baml
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\MainWindow.baml
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\RegisterWindow.baml
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\GameWindow.g.cs
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\LoginWindow.g.cs
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\MainWindow.g.cs
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\views\RegisterWindow.g.cs
