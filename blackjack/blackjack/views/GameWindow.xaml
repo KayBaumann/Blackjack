@@ -9,26 +9,32 @@
 
     <Grid Margin="20">
         <Button Content="🖥" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Click="ToggleFullscreen_Click" Background="Gray" Foreground="White" FontSize="20"/>
-        <Button Content="Exit to Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="40" Click="BackToMenu_Click" Background="Red" Foreground="White" FontSize="16"/>
+        <Button Content="Back to Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="40" Click="BackToMenu_Click" Background="Red" Foreground="White" FontSize="16"/>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="700">
+            <TextBlock x:Name="WelcomeTextBlock" FontSize="24" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
 
-            <TextBlock Text="Blackjack" FontSize="36" Foreground="White" TextAlignment="Center" Margin="0,0,0,40"/>
-
-            <TextBlock Text="Dealer's Hand:" FontSize="24" Foreground="White"/>
-            <TextBlock x:Name="DealerHandTextBlock" FontSize="20" Foreground="White" Margin="0,0,0,20"/>
-
-            <TextBlock Text="Player's Hand:" FontSize="24" Foreground="White"/>
-            <TextBlock x:Name="PlayerHandTextBlock" FontSize="20" Foreground="White" Margin="0,0,0,20"/>
-
-            <TextBlock x:Name="GameStatusTextBlock" FontSize="24" Foreground="White" TextAlignment="Center" Margin="0,20,0,20"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="HitButton" Content="Hit" Click="Hit_Click" Width="150" Height="50" Margin="10" FontSize="18" Background="#3b82f6" Foreground="White"/>
-                <Button x:Name="StandButton" Content="Stand" Click="Stand_Click" Width="150" Height="50" Margin="10" FontSize="18" Background="#10b981" Foreground="White"/>
-                <Button x:Name="NewGameButton" Content="New Game" Click="NewGame_Click" Width="150" Height="50" Margin="10" FontSize="18" Background="#ef4444" Foreground="White" Visibility="Collapsed"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBlock Text="Bet:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox x:Name="BetInput" Width="100" Height="30" Text="100"/>
+                <Button Content="Place Bet" Click="PlaceBet_Click" Width="100" Height="30" Margin="10,0,0,0"/>
             </StackPanel>
 
+            <TextBlock Text="Dealer's Hand:" FontSize="20" Foreground="White"/>
+            <TextBlock x:Name="DealerHandTextBlock" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Player's Hand:" FontSize="20" Foreground="White"/>
+            <TextBlock x:Name="PlayerHandTextBlock" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+
+            <TextBlock x:Name="GameStatusTextBlock" FontSize="18" Foreground="LightGreen" TextAlignment="Center" Margin="0,10,0,20"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Button x:Name="HitButton" Content="Hit" Width="120" Height="40" Margin="10" Click="Hit_Click" Visibility="Collapsed"/>
+                <Button x:Name="StandButton" Content="Stand" Width="120" Height="40" Margin="10" Click="Stand_Click" Visibility="Collapsed"/>
+                <Button x:Name="InsuranceButton" Content="Take Insurance" Height="35" Width="150" Margin="0,10,0,0" HorizontalAlignment="Center" Click="InsuranceButton_Click" Visibility="Collapsed" Background="#facc15" Foreground="Black"/>
+                <Button x:Name="DoubleDownButton" Content="Double Down" Width="150" Height="40" Margin="10" Click="DoubleDown_Click" Visibility="Collapsed"/>
+                <Button x:Name="NewGameButton" Content="New Game" Width="150" Height="40" Margin="10" Click="NewGame_Click" Visibility="Collapsed"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

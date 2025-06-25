@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "G:\\Blackjack\\blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\classes\\blackjackgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\classes\\blackjackgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\views\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\views\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,13 +31,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "App.xaml",
-              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\App.xaml",
-              "RelativeDocumentMoniker": "blackjack\\App.xaml",
-              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\App.xaml",
-              "RelativeToolTip": "blackjack\\App.xaml",
+              "Title": "BlackjackGame.cs",
+              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\classes\\BlackjackGame.cs",
+              "RelativeDocumentMoniker": "blackjack\\classes\\BlackjackGame.cs",
+              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\classes\\BlackjackGame.cs",
+              "RelativeToolTip": "blackjack\\classes\\BlackjackGame.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T19:05:54.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameWindow.xaml.cs",
+              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml.cs",
+              "RelativeDocumentMoniker": "blackjack\\views\\GameWindow.xaml.cs",
+              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml.cs",
+              "RelativeToolTip": "blackjack\\views\\GameWindow.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAwwCcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T19:00:53.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameWindow.xaml",
+              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml",
+              "RelativeDocumentMoniker": "blackjack\\views\\GameWindow.xaml",
+              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml",
+              "RelativeToolTip": "blackjack\\views\\GameWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-25T18:52:56.362Z",
+              "WhenOpened": "2025-06-25T18:59:08.457Z",
               "EditorCaption": ""
             }
           ]
