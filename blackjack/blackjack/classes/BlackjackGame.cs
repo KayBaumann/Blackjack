@@ -72,7 +72,7 @@ namespace BlackjackApp.classes
 
         public bool OfferInsurance()
         {
-            InsuranceOffered = Dealer.Hand.Cards.First().Value == CardValue.Ace;
+            InsuranceOffered = Dealer.Hand.Cards.First().Rank == Rank.Ace;
             return InsuranceOffered;
         }
 
@@ -112,7 +112,6 @@ namespace BlackjackApp.classes
                 payout += Bet;
             else if (Player.Hand.GetScore() < Dealer.Hand.GetScore())
                 payout -= Bet;
-            // Bei Gleichstand: payout bleibt 0
 
             return payout;
         }

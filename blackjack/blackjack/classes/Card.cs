@@ -20,7 +20,7 @@
                 return (int)Rank;
             if (Rank == Rank.Jack || Rank == Rank.Queen || Rank == Rank.King)
                 return 10;
-            return 11; // Ace
+            return 11;
         }
 
         public override string ToString()
