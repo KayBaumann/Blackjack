@@ -6,7 +6,7 @@ namespace BlackjackApp
     {
         private bool isFullscreen = true;
         private string currentUsername;
-        private int chips = 1000;
+        private int chips = 1000; // Startkapital
 
         public MainWindow(string username)
         {
@@ -18,8 +18,9 @@ namespace BlackjackApp
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Game will start...");
-            // Game-Logik 
+            GameWindow gameWindow = new GameWindow(currentUsername);
+            gameWindow.Show();
+            this.Close();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)

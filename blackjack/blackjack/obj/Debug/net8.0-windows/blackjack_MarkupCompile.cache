@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Kay\Desktop\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\
+G:\Blackjack\blackjack\blackjack\obj\Debug\net8.0-windows\
 blackjack
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Kay\Desktop\Blackjack\blackjack\blackjack\App.xaml
-3-1041084437
+G:\Blackjack\blackjack\blackjack\App.xaml
+4-2051630586
 
-81671216539
+14437461821
 2031770534592
-LoginWindow.xaml;MainWindow.xaml;RegisterWindow.xaml;
+GameWindow.xaml;LoginWindow.xaml;MainWindow.xaml;RegisterWindow.xaml;
 
 False
 
