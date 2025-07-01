@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 namespace BlackjackApp.classes
 {
@@ -84,6 +85,38 @@ namespace BlackjackApp.classes
             }
         }
 
+        public bool CanSplit()
+        {
+            var cards = Player.Hand.Cards;
+            return cards.Count == 2 && cards[0].Rank == cards[1].Rank;
+        }
+
+        public void PerformSplit()
+        {
+            var original = Player.Hand;
+            var splitCard = original.Cards[1];
+            original.Cards.RemoveAt(1);
+
+            var newHand = new Hand();
+            newHand.AddCard(splitCard);
+
+            original.AddCard(deck.DrawCard());
+            newHand.AddCard(deck.DrawCard());
+
+            Player.Hands = new List<Hand> { original, newHand };
+            Player.ActiveHandIndex = 0;
+        }
+
+        public bool NextHand()
+        {
+            if (Player.ActiveHandIndex + 1 < Player.Hands.Count)
+            {
+                Player.ActiveHandIndex++;
+                return true;
+            }
+            return false;
+        }
+
         public int CalculatePayout()
         {
             if (PlayerSurrendered)
@@ -135,7 +168,6 @@ namespace BlackjackApp.classes
 
             return payout;
         }
-
 
         public int CalculateBlackjackPayout()
         {

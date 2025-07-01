@@ -32,6 +32,7 @@
                 <Button x:Name="HitButton" Content="Hit" Width="120" Height="40" Margin="10" Click="Hit_Click" Visibility="Collapsed"/>
                 <Button x:Name="StandButton" Content="Stand" Width="120" Height="40" Margin="10" Click="Stand_Click" Visibility="Collapsed"/>
                 <Button x:Name="DoubleDownButton" Content="Double Down" Width="150" Height="40" Margin="10" Click="DoubleDown_Click" Visibility="Collapsed"/>
+                <Button x:Name="SplitButton" Content="Split" Width="150" Height="40" Margin="10" Click="SplitButton_Click" Visibility="Collapsed" Background="#38bdf8" Foreground="Black"/>
                 <Button x:Name="SurrenderButton" Content="Surrender" Width="150" Height="40" Margin="10" Click="SurrenderButton_Click" Visibility="Collapsed" Background="OrangeRed" Foreground="White"/>
                 <Button x:Name="InsuranceButton" Content="Take Insurance" Width="150" Height="40" Margin="10" Click="InsuranceButton_Click" Visibility="Collapsed" Background="#facc15" Foreground="Black"/>
                 <Button x:Name="NewGameButton" Content="New Game" Width="150" Height="40" Margin="10" Click="NewGame_Click" Visibility="Collapsed"/>

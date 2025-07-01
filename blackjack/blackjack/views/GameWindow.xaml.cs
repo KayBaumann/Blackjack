@@ -80,6 +80,15 @@ namespace BlackjackApp
                 {
                     SurrenderButton.Visibility = Visibility.Visible;
                 }
+
+                if (game.CanSplit())
+                {
+                    SplitButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    SplitButton.Visibility = Visibility.Collapsed;
+                }
             }
 
             UpdateWelcomeText();
@@ -95,6 +104,13 @@ namespace BlackjackApp
 
             if (game.Player.Hand.IsBust())
             {
+                if (game.NextHand())
+                {
+                    GameStatusTextBlock.Text = $"Hand busted. Now playing hand {game.Player.ActiveHandIndex + 1}";
+                    UpdateUI();
+                    return;
+                }
+
                 GameStatusTextBlock.Text = "Busted!";
                 chips -= game.Bet;
                 EndRoundUI();
@@ -104,6 +120,13 @@ namespace BlackjackApp
 
         private void Stand_Click(object sender, RoutedEventArgs e)
         {
+            if (game.NextHand())
+            {
+                GameStatusTextBlock.Text = $"Now playing hand {game.Player.ActiveHandIndex + 1}";
+                UpdateUI();
+                return;
+            }
+
             game.DealerTurn();
             UpdateUI();
 
@@ -111,10 +134,7 @@ namespace BlackjackApp
 
             if (game.InsuranceTaken)
             {
-                if (game.InsuranceWon)
-                    GameStatusTextBlock.Text += "Insurance won!\n";
-                else
-                    GameStatusTextBlock.Text += "Insurance lost.\n";
+                GameStatusTextBlock.Text += game.InsuranceWon ? "Insurance won!\n" : "Insurance lost.\n";
             }
 
             if (result > 0)
@@ -148,10 +168,18 @@ namespace BlackjackApp
             }
             else
             {
-                Stand_Click(sender, e); // Auto-Stand
+                Stand_Click(sender, e);
             }
 
             UpdateWelcomeText();
+        }
+
+        private void SplitButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.PerformSplit();
+            GameStatusTextBlock.Text = "Hand split. Playing first hand.";
+            SplitButton.Visibility = Visibility.Collapsed;
+            UpdateUI();
         }
 
         private void InsuranceButton_Click(object sender, RoutedEventArgs e)
@@ -173,6 +201,7 @@ namespace BlackjackApp
             DoubleDownButton.Visibility = Visibility.Collapsed;
             SurrenderButton.Visibility = Visibility.Collapsed;
             InsuranceButton.Visibility = Visibility.Collapsed;
+            SplitButton.Visibility = Visibility.Collapsed;
             NewGameButton.Visibility = Visibility.Visible;
 
             UpdateHandText();
@@ -196,6 +225,7 @@ namespace BlackjackApp
             NewGameButton.Visibility = Visibility.Collapsed;
             InsuranceButton.Visibility = Visibility.Collapsed;
             SurrenderButton.Visibility = Visibility.Collapsed;
+            SplitButton.Visibility = Visibility.Collapsed;
         }
 
         private void ShowButtons()
@@ -213,6 +243,7 @@ namespace BlackjackApp
             NewGameButton.Visibility = Visibility.Visible;
             InsuranceButton.Visibility = Visibility.Collapsed;
             SurrenderButton.Visibility = Visibility.Collapsed;
+            SplitButton.Visibility = Visibility.Collapsed;
         }
 
         private void UpdateUI()
