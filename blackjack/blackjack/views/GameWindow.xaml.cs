@@ -75,6 +75,11 @@ namespace BlackjackApp
             {
                 GameStatusTextBlock.Text = "";
                 ShowButtons();
+
+                if (!game.IsDealerBlackjack())
+                {
+                    SurrenderButton.Visibility = Visibility.Visible;
+                }
             }
 
             UpdateWelcomeText();
@@ -85,6 +90,8 @@ namespace BlackjackApp
         {
             game.PlayerHit();
             UpdateUI();
+
+            SurrenderButton.Visibility = Visibility.Collapsed;
 
             if (game.Player.Hand.IsBust())
             {
@@ -132,6 +139,7 @@ namespace BlackjackApp
 
             game.PlayerDouble();
             UpdateUI();
+            SurrenderButton.Visibility = Visibility.Collapsed;
 
             if (game.Player.Hand.IsBust())
             {
@@ -153,6 +161,23 @@ namespace BlackjackApp
             GameStatusTextBlock.Text = "Insurance taken.";
         }
 
+        private void SurrenderButton_Click(object sender, RoutedEventArgs e)
+        {
+            game.Surrender();
+            GameStatusTextBlock.Text = "You surrendered. Half your bet is lost.";
+            chips += game.CalculatePayout();
+            UpdateWelcomeText();
+
+            HitButton.Visibility = Visibility.Collapsed;
+            StandButton.Visibility = Visibility.Collapsed;
+            DoubleDownButton.Visibility = Visibility.Collapsed;
+            SurrenderButton.Visibility = Visibility.Collapsed;
+            InsuranceButton.Visibility = Visibility.Collapsed;
+            NewGameButton.Visibility = Visibility.Visible;
+
+            UpdateHandText();
+        }
+
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
             ResetUI();
@@ -170,6 +195,7 @@ namespace BlackjackApp
             DoubleDownButton.Visibility = Visibility.Collapsed;
             NewGameButton.Visibility = Visibility.Collapsed;
             InsuranceButton.Visibility = Visibility.Collapsed;
+            SurrenderButton.Visibility = Visibility.Collapsed;
         }
 
         private void ShowButtons()
@@ -186,12 +212,18 @@ namespace BlackjackApp
             DoubleDownButton.Visibility = Visibility.Collapsed;
             NewGameButton.Visibility = Visibility.Visible;
             InsuranceButton.Visibility = Visibility.Collapsed;
+            SurrenderButton.Visibility = Visibility.Collapsed;
         }
 
         private void UpdateUI()
         {
             DealerHandTextBlock.Text = string.Join(", ", game.Dealer.Hand.Cards.Select(c => c.ToString())) + $" (Score: {game.Dealer.Hand.GetScore()})";
             PlayerHandTextBlock.Text = string.Join(", ", game.Player.Hand.Cards.Select(c => c.ToString())) + $" (Score: {game.Player.Hand.GetScore()})";
+        }
+
+        private void UpdateHandText()
+        {
+            UpdateUI();
         }
 
         private void ToggleFullscreen_Click(object sender, RoutedEventArgs e)

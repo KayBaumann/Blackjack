@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "G:\\Blackjack\\blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\classes\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\classes\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|g:\\blackjack\\blackjack\\blackjack\\classes\\blackjackgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\classes\\blackjackgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,45 +34,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Deck.cs",
-              "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\classes\\Deck.cs",
-              "RelativeDocumentMoniker": "blackjack\\classes\\Deck.cs",
-              "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\classes\\Deck.cs",
-              "RelativeToolTip": "blackjack\\classes\\Deck.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T18:50:08.228Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Card.cs",
               "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\classes\\Card.cs",
               "RelativeDocumentMoniker": "blackjack\\classes\\Card.cs",
               "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\classes\\Card.cs",
               "RelativeToolTip": "blackjack\\classes\\Card.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T19:29:25.641Z"
+              "WhenOpened": "2025-06-25T19:29:25.641Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "BlackjackGame.cs",
               "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\classes\\BlackjackGame.cs",
               "RelativeDocumentMoniker": "blackjack\\classes\\BlackjackGame.cs",
               "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\classes\\BlackjackGame.cs",
               "RelativeToolTip": "blackjack\\classes\\BlackjackGame.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAuwHwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAmwIkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-25T19:13:58.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "GameWindow.xaml.cs",
               "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml.cs",
               "RelativeDocumentMoniker": "blackjack\\views\\GameWindow.xaml.cs",
@@ -88,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "GameWindow.xaml",
               "DocumentMoniker": "G:\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml",
               "RelativeDocumentMoniker": "blackjack\\views\\GameWindow.xaml",
