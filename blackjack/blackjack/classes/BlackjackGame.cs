@@ -104,17 +104,38 @@ namespace BlackjackApp.classes
                 }
             }
 
-            if (Player.Hand.IsBust())
+            if (IsPlayerBlackjack() && !IsDealerBlackjack())
+            {
+                payout += (int)(Bet * 1.5);
+            }
+            else if (IsPlayerBlackjack() && IsDealerBlackjack())
+            {
+                payout += 0;
+            }
+            else if (IsDealerBlackjack() && !IsPlayerBlackjack())
+            {
                 payout -= Bet;
+            }
+            else if (Player.Hand.IsBust())
+            {
+                payout -= Bet;
+            }
             else if (Dealer.Hand.IsBust())
+            {
                 payout += Bet;
+            }
             else if (Player.Hand.GetScore() > Dealer.Hand.GetScore())
+            {
                 payout += Bet;
+            }
             else if (Player.Hand.GetScore() < Dealer.Hand.GetScore())
+            {
                 payout -= Bet;
+            }
 
             return payout;
         }
+
 
         public int CalculateBlackjackPayout()
         {
