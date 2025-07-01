@@ -22,10 +22,13 @@ The game follows official Blackjack rules as outlined by [Jackpots.ch](https://w
 
 ## 📦 Planned Improvements
 
-- Split hands
-- Multi-deck simulation (6 or 8 decks)
-- Persistent user profiles & stats
-- UI polish & animations
+- Persistent user profiles & statistics (with SQLite)
+- Blackjack history tracking
+- UI polish and animations
+- Sound effects
+- Localization (multi-language support)
+- Double Down after Split (intentionally disabled per official rules)
+- Natural Blackjack after Split (planned to not count as real Blackjack)
 
 ---
 
