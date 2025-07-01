@@ -8,14 +8,17 @@ namespace BlackjackApp
         private List<Card> cards;
         private Random random = new Random();
 
-        public Deck()
+        public Deck(int deckCount = 6)
         {
             cards = new List<Card>();
-            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
+            for (int d = 0; d < deckCount; d++)
             {
-                foreach (Rank rank in Enum.GetValues(typeof(Rank)))
+                foreach (Suit suit in Enum.GetValues(typeof(Suit)))
                 {
-                    cards.Add(new Card(suit, rank));
+                    foreach (Rank rank in Enum.GetValues(typeof(Rank)))
+                    {
+                        cards.Add(new Card(suit, rank));
+                    }
                 }
             }
             Shuffle();

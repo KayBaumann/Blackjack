@@ -42,8 +42,7 @@
               "RelativeToolTip": "blackjack\\classes\\Card.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T19:29:25.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T19:29:25.641Z"
             },
             {
               "$type": "Document",
@@ -53,7 +52,7 @@
               "RelativeDocumentMoniker": "blackjack\\classes\\BlackjackGame.cs",
               "ToolTip": "G:\\Blackjack\\blackjack\\blackjack\\classes\\BlackjackGame.cs",
               "RelativeToolTip": "blackjack\\classes\\BlackjackGame.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAYwHwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAwHYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-25T19:13:58.869Z",
               "EditorCaption": ""
@@ -68,8 +67,7 @@
               "RelativeToolTip": "blackjack\\views\\GameWindow.xaml.cs",
               "ViewState": "AgIAAK8AAAAAAAAAAAAgwMMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T19:00:53.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T19:00:53.091Z"
             },
             {
               "$type": "Document",
