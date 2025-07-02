@@ -17,6 +17,9 @@ namespace BlackjackApp.classes
         public bool InsuranceTaken { get; private set; }
         public bool InsuranceWon { get; private set; }
 
+        public bool SplitPerformed { get; private set; }
+        public bool PlayerActed { get; private set; }
+
         public BlackjackGame(string playerName, int bet)
         {
             deck = new Deck();
@@ -28,6 +31,8 @@ namespace BlackjackApp.classes
             InsuranceOffered = false;
             InsuranceTaken = false;
             InsuranceWon = false;
+            SplitPerformed = false;
+            PlayerActed = false;
         }
 
         public void StartGame()
@@ -40,18 +45,25 @@ namespace BlackjackApp.classes
             OfferInsurance();
         }
 
-        public bool IsPlayerBlackjack() => Player.Hand.IsBlackjack();
+        public bool IsPlayerBlackjack()
+        {
+            return Player.Hand.IsBlackjack() && !SplitPerformed;
+        }
+
         public bool IsDealerBlackjack() => Dealer.Hand.IsBlackjack();
 
         public void PlayerHit()
         {
+            RegisterPlayerAction();
             Player.Hand.AddCard(deck.DrawCard());
         }
 
         public void PlayerDouble()
         {
+            if (SplitPerformed) return;
             if (!PlayerDoubleDown)
             {
+                RegisterPlayerAction();
                 PlayerDoubleDown = true;
                 Bet *= 2;
                 Player.Hand.AddCard(deck.DrawCard());
@@ -93,6 +105,8 @@ namespace BlackjackApp.classes
 
         public void PerformSplit()
         {
+            RegisterPlayerAction();
+
             var original = Player.Hand;
             var splitCard = original.Cards[1];
             original.Cards.RemoveAt(1);
@@ -105,6 +119,7 @@ namespace BlackjackApp.classes
 
             Player.Hands = new List<Hand> { original, newHand };
             Player.ActiveHandIndex = 0;
+            SplitPerformed = true;
         }
 
         public bool NextHand()
@@ -172,6 +187,11 @@ namespace BlackjackApp.classes
         public int CalculateBlackjackPayout()
         {
             return (int)(Bet * 1.5);
+        }
+
+        public void RegisterPlayerAction()
+        {
+            PlayerActed = true;
         }
     }
 }
