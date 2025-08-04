@@ -85,7 +85,6 @@ namespace BlackjackApp
         {
             game.PlayerHit();
             UpdateUI();
-
             ShowButtons();
 
             if (game.Player.Hand.IsBust())
@@ -235,7 +234,17 @@ namespace BlackjackApp
 
         private void UpdateUI()
         {
-            DealerHandTextBlock.Text = string.Join(", ", game.Dealer.Hand.Cards.Select(c => c.ToString())) + $" (Score: {game.Dealer.Hand.GetScore()})";
+            var dealerCards = game.Dealer.Hand.Cards;
+
+            if (game.PlayerActed || game.Dealer.Hand.IsBlackjack())
+            {
+                DealerHandTextBlock.Text = string.Join(", ", dealerCards.Select(c => c.ToString())) + $" (Score: {game.Dealer.Hand.GetScore()})";
+            }
+            else
+            {
+                DealerHandTextBlock.Text = $"{dealerCards[0]}, [Hidden]";
+            }
+
             PlayerHandTextBlock.Text = string.Join(", ", game.Player.Hand.Cards.Select(c => c.ToString())) + $" (Score: {game.Player.Hand.GetScore()})";
         }
 
