@@ -20,6 +20,8 @@ namespace BlackjackApp.classes
         public bool SplitPerformed { get; private set; }
         public bool PlayerActed { get; private set; }
 
+        public bool RevealDealerHole { get; private set; }
+
         public BlackjackGame(string playerName, int bet)
         {
             deck = new Deck();
@@ -33,6 +35,7 @@ namespace BlackjackApp.classes
             InsuranceWon = false;
             SplitPerformed = false;
             PlayerActed = false;
+            RevealDealerHole = false;
         }
 
         public void StartGame()
@@ -41,8 +44,13 @@ namespace BlackjackApp.classes
             Dealer.Hand.AddCard(deck.DrawCard());
             Player.Hand.AddCard(deck.DrawCard());
             Dealer.Hand.AddCard(deck.DrawCard());
-
             OfferInsurance();
+            RevealDealerHole = IsDealerBlackjack();
+        }
+
+        public void RevealDealer()
+        {
+            RevealDealerHole = true;
         }
 
         public bool IsPlayerBlackjack()
@@ -72,6 +80,7 @@ namespace BlackjackApp.classes
 
         public void DealerTurn()
         {
+            RevealDealer();
             while (Dealer.Hand.GetScore() < 17 || (Dealer.Hand.GetScore() == 17 && Dealer.Hand.HasSoft17()))
             {
                 Dealer.Hand.AddCard(deck.DrawCard());
@@ -106,17 +115,13 @@ namespace BlackjackApp.classes
         public void PerformSplit()
         {
             RegisterPlayerAction();
-
             var original = Player.Hand;
             var splitCard = original.Cards[1];
             original.Cards.RemoveAt(1);
-
             var newHand = new Hand();
             newHand.AddCard(splitCard);
-
             original.AddCard(deck.DrawCard());
             newHand.AddCard(deck.DrawCard());
-
             Player.Hands = new List<Hand> { original, newHand };
             Player.ActiveHandIndex = 0;
             SplitPerformed = true;

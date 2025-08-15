@@ -55,6 +55,7 @@ namespace BlackjackApp
 
             if (game.Player.Hand.IsBlackjack())
             {
+                game.RevealDealer();
                 game.DealerTurn();
                 UpdateUI();
 
@@ -98,6 +99,8 @@ namespace BlackjackApp
 
                 GameStatusTextBlock.Text = "Busted!";
                 chips -= game.Bet;
+                game.RevealDealer();
+                UpdateUI();
                 EndRoundUI();
                 UpdateWelcomeText();
             }
@@ -113,6 +116,7 @@ namespace BlackjackApp
                 return;
             }
 
+            game.RevealDealer();
             game.DealerTurn();
             UpdateUI();
 
@@ -151,6 +155,8 @@ namespace BlackjackApp
             {
                 GameStatusTextBlock.Text = "Busted after Double Down!";
                 chips -= game.Bet;
+                game.RevealDealer();
+                UpdateUI();
                 EndRoundUI();
                 UpdateWelcomeText();
             }
@@ -164,7 +170,6 @@ namespace BlackjackApp
         {
             game.PerformSplit();
             GameStatusTextBlock.Text = "Hand split. Playing first hand.";
-
             UpdateUI();
             ShowButtons();
         }
@@ -182,9 +187,9 @@ namespace BlackjackApp
             GameStatusTextBlock.Text = "You surrendered. Half your bet is lost.";
             chips += game.CalculatePayout();
             UpdateWelcomeText();
-
-            EndRoundUI();
+            game.RevealDealer();
             UpdateHandText();
+            EndRoundUI();
         }
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
@@ -236,7 +241,7 @@ namespace BlackjackApp
         {
             var dealerCards = game.Dealer.Hand.Cards;
 
-            if (game.PlayerActed || game.Dealer.Hand.IsBlackjack())
+            if (game.RevealDealerHole)
             {
                 DealerHandTextBlock.Text = string.Join(", ", dealerCards.Select(c => c.ToString())) + $" (Score: {game.Dealer.Hand.GetScore()})";
             }

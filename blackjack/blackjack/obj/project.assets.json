@@ -1215,19 +1215,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kay\\.nuget\\packages\\": {}
+    "C:\\Users\\kaytr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kay\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
+      "projectUniqueName": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
       "projectName": "blackjack",
-      "projectPath": "C:\\Users\\Kay\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
-      "packagesPath": "C:\\Users\\Kay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kay\\Desktop\\Blackjack\\blackjack\\blackjack\\obj\\",
+      "projectPath": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
+      "packagesPath": "C:\\Users\\kaytr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kaytr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1235,7 +1235,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1283,7 +1282,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
