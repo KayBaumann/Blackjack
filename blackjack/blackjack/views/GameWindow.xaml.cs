@@ -1,6 +1,7 @@
 ﻿using BlackjackApp.classes;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace BlackjackApp
 {
@@ -12,6 +13,9 @@ namespace BlackjackApp
         private int chips = 1000;
         private bool insuranceOffered = false;
 
+        private int? currentBetPlaced = null;
+        private Button placeBetBtnRef;
+
         public GameWindow(string username)
         {
             InitializeComponent();
@@ -21,7 +25,8 @@ namespace BlackjackApp
 
         private void UpdateWelcomeText()
         {
-            WelcomeTextBlock.Text = $"Welcome, {currentUsername} – Chips: {chips}";
+            var betInfo = currentBetPlaced.HasValue ? $" – Bet: {currentBetPlaced.Value}" : "";
+            WelcomeTextBlock.Text = $"Welcome, {currentUsername} – Chips: {chips}{betInfo}";
         }
 
         private void PlaceBet_Click(object sender, RoutedEventArgs e)
@@ -37,6 +42,12 @@ namespace BlackjackApp
                 GameStatusTextBlock.Text = "Not enough chips!";
                 return;
             }
+
+            placeBetBtnRef = sender as Button;
+            currentBetPlaced = bet;
+            BetInput.Visibility = Visibility.Collapsed;
+            if (placeBetBtnRef != null) placeBetBtnRef.Visibility = Visibility.Collapsed;
+            UpdateWelcomeText();
 
             game = new BlackjackGame(currentUsername, bet);
             game.StartGame();
@@ -199,11 +210,16 @@ namespace BlackjackApp
 
         private void ResetUI()
         {
+            currentBetPlaced = null;
             BetInput.Text = "100";
             BetInput.IsEnabled = true;
+            BetInput.Visibility = Visibility.Visible;
+            if (placeBetBtnRef != null) placeBetBtnRef.Visibility = Visibility.Visible;
+
             GameStatusTextBlock.Text = "";
             DealerHandTextBlock.Text = "";
             PlayerHandTextBlock.Text = "";
+
             HitButton.Visibility = Visibility.Collapsed;
             StandButton.Visibility = Visibility.Collapsed;
             DoubleDownButton.Visibility = Visibility.Collapsed;
@@ -211,6 +227,8 @@ namespace BlackjackApp
             InsuranceButton.Visibility = Visibility.Collapsed;
             SurrenderButton.Visibility = Visibility.Collapsed;
             SplitButton.Visibility = Visibility.Collapsed;
+
+            UpdateWelcomeText();
         }
 
         private void ShowButtons()

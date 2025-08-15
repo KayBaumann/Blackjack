@@ -6,18 +6,22 @@
         ResizeMode="NoResize"
         WindowState="Maximized"
         Background="#1e1e1e">
-
     <Grid Margin="20">
         <Button Content="🖥" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Click="ToggleFullscreen_Click" Background="Gray" Foreground="White" FontSize="20"/>
         <Button Content="Back to Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="40" Click="BackToMenu_Click" Background="Red" Foreground="White" FontSize="16"/>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="700">
-            <TextBlock x:Name="WelcomeTextBlock" FontSize="24" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
+            <TextBlock x:Name="WelcomeTextBlock"
+                       FontSize="24"
+                       Foreground="White"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <StackPanel x:Name="BetPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock Text="Bet:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"/>
                 <TextBox x:Name="BetInput" Width="100" Height="30" Text="100"/>
-                <Button Content="Place Bet" Click="PlaceBet_Click" Width="100" Height="30" Margin="10,0,0,0"/>
+                <Button x:Name="PlaceBetButton" Content="Place Bet" Click="PlaceBet_Click" Width="100" Height="30" Margin="10,0,0,0"/>
             </StackPanel>
 
             <TextBlock Text="Dealer's Hand:" FontSize="20" Foreground="White"/>
@@ -28,7 +32,7 @@
 
             <TextBlock x:Name="GameStatusTextBlock" FontSize="18" Foreground="LightGreen" TextAlignment="Center" Margin="0,10,0,20"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="HitButton" Content="Hit" Width="120" Height="40" Margin="10" Click="Hit_Click" Visibility="Collapsed"/>
                 <Button x:Name="StandButton" Content="Stand" Width="120" Height="40" Margin="10" Click="Stand_Click" Visibility="Collapsed"/>
                 <Button x:Name="DoubleDownButton" Content="Double Down" Width="150" Height="40" Margin="10" Click="DoubleDown_Click" Visibility="Collapsed"/>
