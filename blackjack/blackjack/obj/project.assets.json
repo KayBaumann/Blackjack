@@ -1220,11 +1220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
+      "projectUniqueName": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
       "projectName": "blackjack",
-      "projectPath": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
+      "projectPath": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
       "packagesPath": "C:\\Users\\kaytr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\obj\\",
+      "outputPath": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kaytr\\AppData\\Roaming\\NuGet\\NuGet.Config",

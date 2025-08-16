@@ -12,9 +12,7 @@ namespace BlackjackApp
         private string currentUsername;
         private int chips = 1000;
         private bool insuranceOffered = false;
-
         private int? currentBetPlaced = null;
-        private Button placeBetBtnRef;
 
         public GameWindow(string username)
         {
@@ -25,8 +23,10 @@ namespace BlackjackApp
 
         private void UpdateWelcomeText()
         {
-            var betInfo = currentBetPlaced.HasValue ? $" – Bet: {currentBetPlaced.Value}" : "";
-            WelcomeTextBlock.Text = $"Welcome, {currentUsername} – Chips: {chips}{betInfo}";
+            if (currentBetPlaced.HasValue)
+                WelcomeTextBlock.Text = $"Welcome, {currentUsername}\nChips: {chips} – Bet: {currentBetPlaced.Value}";
+            else
+                WelcomeTextBlock.Text = $"Welcome, {currentUsername}\nChips: {chips}";
         }
 
         private void PlaceBet_Click(object sender, RoutedEventArgs e)
@@ -43,10 +43,9 @@ namespace BlackjackApp
                 return;
             }
 
-            placeBetBtnRef = sender as Button;
             currentBetPlaced = bet;
-            BetInput.Visibility = Visibility.Collapsed;
-            if (placeBetBtnRef != null) placeBetBtnRef.Visibility = Visibility.Collapsed;
+            BetPanel.Visibility = Visibility.Collapsed;
+            BackToMenuButton.Visibility = Visibility.Collapsed;
             UpdateWelcomeText();
 
             game = new BlackjackGame(currentUsername, bet);
@@ -90,7 +89,6 @@ namespace BlackjackApp
             }
 
             UpdateWelcomeText();
-            BetInput.IsEnabled = false;
         }
 
         private void Hit_Click(object sender, RoutedEventArgs e)
@@ -197,10 +195,10 @@ namespace BlackjackApp
             game.Surrender();
             GameStatusTextBlock.Text = "You surrendered. Half your bet is lost.";
             chips += game.CalculatePayout();
-            UpdateWelcomeText();
             game.RevealDealer();
             UpdateHandText();
             EndRoundUI();
+            UpdateWelcomeText();
         }
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
@@ -211,11 +209,10 @@ namespace BlackjackApp
         private void ResetUI()
         {
             currentBetPlaced = null;
-            BetInput.Text = "100";
-            BetInput.IsEnabled = true;
-            BetInput.Visibility = Visibility.Visible;
-            if (placeBetBtnRef != null) placeBetBtnRef.Visibility = Visibility.Visible;
+            BetPanel.Visibility = Visibility.Visible;
+            BackToMenuButton.Visibility = Visibility.Visible;
 
+            BetInput.Text = "100";
             GameStatusTextBlock.Text = "";
             DealerHandTextBlock.Text = "";
             PlayerHandTextBlock.Text = "";
@@ -235,10 +232,14 @@ namespace BlackjackApp
         {
             HitButton.Visibility = Visibility.Visible;
             StandButton.Visibility = Visibility.Visible;
-            DoubleDownButton.Visibility = game.SplitPerformed ? Visibility.Collapsed : Visibility.Visible;
-            SurrenderButton.Visibility = game.PlayerActed ? Visibility.Collapsed : Visibility.Visible;
 
-            if (game.CanSplit())
+            var twoCards = game.Player.Hand.Cards.Count == 2;
+            var allowOpeningActions = !game.PlayerActed && !game.SplitPerformed && twoCards;
+
+            DoubleDownButton.Visibility = allowOpeningActions ? Visibility.Visible : Visibility.Collapsed;
+            SurrenderButton.Visibility = allowOpeningActions ? Visibility.Visible : Visibility.Collapsed;
+
+            if (!game.PlayerActed && game.CanSplit())
                 SplitButton.Visibility = Visibility.Visible;
             else
                 SplitButton.Visibility = Visibility.Collapsed;
@@ -253,6 +254,7 @@ namespace BlackjackApp
             InsuranceButton.Visibility = Visibility.Collapsed;
             SurrenderButton.Visibility = Visibility.Collapsed;
             SplitButton.Visibility = Visibility.Collapsed;
+            BackToMenuButton.Visibility = Visibility.Visible;
         }
 
         private void UpdateUI()
@@ -260,13 +262,9 @@ namespace BlackjackApp
             var dealerCards = game.Dealer.Hand.Cards;
 
             if (game.RevealDealerHole)
-            {
                 DealerHandTextBlock.Text = string.Join(", ", dealerCards.Select(c => c.ToString())) + $" (Score: {game.Dealer.Hand.GetScore()})";
-            }
             else
-            {
                 DealerHandTextBlock.Text = $"{dealerCards[0]}, [Hidden]";
-            }
 
             PlayerHandTextBlock.Text = string.Join(", ", game.Player.Hand.Cards.Select(c => c.ToString())) + $" (Score: {game.Player.Hand.GetScore()})";
         }
@@ -296,7 +294,7 @@ namespace BlackjackApp
         {
             MainWindow mainWindow = new MainWindow(currentUsername);
             mainWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }

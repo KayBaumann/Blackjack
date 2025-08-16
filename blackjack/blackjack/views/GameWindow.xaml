@@ -7,8 +7,8 @@
         WindowState="Maximized"
         Background="#1e1e1e">
     <Grid Margin="20">
-        <Button Content="🖥" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Click="ToggleFullscreen_Click" Background="Gray" Foreground="White" FontSize="20"/>
-        <Button Content="Back to Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="40" Click="BackToMenu_Click" Background="Red" Foreground="White" FontSize="16"/>
+        <Button x:Name="ToggleFullscreenBtn" Content="🖥" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Click="ToggleFullscreen_Click" Background="Gray" Foreground="White" FontSize="20"/>
+        <Button x:Name="BackToMenuButton" Content="Back to Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="40" Click="BackToMenu_Click" Background="Red" Foreground="White" FontSize="16"/>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="700">
             <TextBlock x:Name="WelcomeTextBlock"

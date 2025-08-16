@@ -30,6 +30,11 @@ namespace BlackjackApp
             this.Close();
         }
 
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         private void ToggleFullscreen_Click(object sender, RoutedEventArgs e)
         {
             if (isFullscreen)

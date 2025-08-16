@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qN9MFDnhrnmwhOvgZma21ANRB0aKzIE9gvP9LOUSKykYMU8bHxX2HbPqmL5fkZpnBplsAGNnf6uOuryShYlm1w==",
+  "dgSpecHash": "Sxti4Xk4QNqZmDmg8DdJyLp2pqcJhrPO4PyRIu3eGDn6iTlef5B4weDbZ/PF3+lltojLQioUwOY6UU6eRRhGTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kaytr\\Desktop\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
+  "projectFilePath": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\blackjack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kaytr\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\kaytr\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
