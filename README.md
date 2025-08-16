@@ -22,13 +22,16 @@ The game follows official Blackjack rules as outlined by [Jackpots.ch](https://w
 
 ## 📦 Planned Improvements
 
-- Persistent user profiles & statistics (with SQLite)
+- Correct Soft-17 detection (dealer hits only on true soft 17)
+- Split handling: second bet, per-hand settlement, and UI flow
+- Surrender: switch to Late Surrender (no surrender if dealer has blackjack)
+- Insurance + dealer blackjack: immediate round settlement
+- Optional rule toggle: split Aces → one card per hand, no re-split
+- Persistent user profiles & statistics (SQLite)
 - Blackjack history tracking
 - UI polish and animations
 - Sound effects
 - Localization (multi-language support)
-- Double Down after Split (intentionally disabled per official rules)
-- Natural Blackjack after Split (planned to not count as real Blackjack)
 
 ---
 
