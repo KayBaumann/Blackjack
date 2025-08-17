@@ -19,8 +19,11 @@ namespace BlackjackApp.classes
 
         public bool SplitPerformed { get; private set; }
         public bool PlayerActed { get; private set; }
-
         public bool RevealDealerHole { get; private set; }
+
+        public bool StrictSplitAcesRule { get; set; } = true;
+        private bool SplitAces;
+        private bool SplitBetCharged;
 
         public BlackjackGame(string playerName, int bet)
         {
@@ -58,11 +61,15 @@ namespace BlackjackApp.classes
             return Player.Hand.IsBlackjack() && !SplitPerformed;
         }
 
-        public bool IsDealerBlackjack() => Dealer.Hand.IsBlackjack();
+        public bool IsDealerBlackjack()
+        {
+            return Dealer.Hand.IsBlackjack();
+        }
 
         public void PlayerHit()
         {
-            RegisterPlayerAction();
+            if (SplitAces && StrictSplitAcesRule) return;
+            PlayerActed = true;
             Player.Hand.AddCard(deck.DrawCard());
         }
 
@@ -80,15 +87,28 @@ namespace BlackjackApp.classes
 
         public void DealerTurn()
         {
-            RevealDealer();
-            while (Dealer.Hand.GetScore() < 17 || (Dealer.Hand.GetScore() == 17 && Dealer.Hand.HasSoft17()))
+            RevealDealerHole = true;
+            while (true)
             {
-                Dealer.Hand.AddCard(deck.DrawCard());
+                int score = Dealer.Hand.GetScore();
+                if (score < 17) { Dealer.Hand.AddCard(deck.DrawCard()); continue; }
+                if (score == 17 && Dealer.Hand.HasSoft17()) { Dealer.Hand.AddCard(deck.DrawCard()); continue; }
+                break;
             }
+        }
+
+        public bool CanSurrender()
+        {
+            if (SplitPerformed) return false;
+            if (IsDealerBlackjack()) return false;
+            if (Player.Hand.Cards.Count != 2) return false;
+            if (PlayerActed) return false;
+            return true;
         }
 
         public void Surrender()
         {
+            if (!CanSurrender()) return;
             PlayerSurrendered = true;
         }
 
@@ -106,6 +126,11 @@ namespace BlackjackApp.classes
             }
         }
 
+        public void PlayerStand()
+        {
+            PlayerActed = true;
+        }
+
         public bool CanSplit()
         {
             var cards = Player.Hand.Cards;
@@ -114,21 +139,36 @@ namespace BlackjackApp.classes
 
         public void PerformSplit()
         {
-            RegisterPlayerAction();
-            var original = Player.Hand;
-            var splitCard = original.Cards[1];
-            original.Cards.RemoveAt(1);
-            var newHand = new Hand();
-            newHand.AddCard(splitCard);
-            original.AddCard(deck.DrawCard());
-            newHand.AddCard(deck.DrawCard());
-            Player.Hands = new List<Hand> { original, newHand };
+            PlayerActed = true;
+            var first = Player.Hand;
+            var splitCard = first.Cards[1];
+            first.Cards.RemoveAt(1);
+            var second = new Hand();
+            second.AddCard(splitCard);
+            first.AddCard(deck.DrawCard());
+            second.AddCard(deck.DrawCard());
+            Player.Hands = new List<Hand> { first, second };
             Player.ActiveHandIndex = 0;
             SplitPerformed = true;
+            SplitAces = first.Cards[0].Rank == Rank.Ace && second.Cards[0].Rank == Rank.Ace;
+            SplitBetCharged = false;
+            if (SplitAces && StrictSplitAcesRule)
+            {
+                Player.ActiveHandIndex = 0;
+            }
+        }
+
+        public int ConsumeSplitBet()
+        {
+            if (!SplitPerformed) return 0;
+            if (SplitBetCharged) return 0;
+            SplitBetCharged = true;
+            return Bet;
         }
 
         public bool NextHand()
         {
+            if (!SplitPerformed) return false;
             if (Player.ActiveHandIndex + 1 < Player.Hands.Count)
             {
                 Player.ActiveHandIndex++;
@@ -139,54 +179,56 @@ namespace BlackjackApp.classes
 
         public int CalculatePayout()
         {
-            if (PlayerSurrendered)
-                return -Bet / 2;
+            if (PlayerSurrendered) return -Bet / 2;
 
             int payout = 0;
 
             if (InsuranceTaken)
             {
+                payout -= Bet / 2;
                 if (IsDealerBlackjack())
                 {
                     InsuranceWon = true;
-                    payout += (int)(Bet * 0.5 * 2);
-                }
-                else
-                {
-                    payout -= (int)(Bet * 0.5);
+                    payout += Bet;
                 }
             }
 
-            if (IsPlayerBlackjack() && !IsDealerBlackjack())
+            if (IsDealerBlackjack() && !IsPlayerBlackjack())
             {
-                payout += (int)(Bet * 1.5);
+                if (!SplitPerformed) return payout - Bet;
+                foreach (var _ in Player.Hands) payout -= Bet;
+                return payout;
             }
-            else if (IsPlayerBlackjack() && IsDealerBlackjack())
+
+            if (!RevealDealerHole) RevealDealer();
+            DealerTurn();
+
+            if (!SplitPerformed)
             {
-                payout += 0;
+                payout += SettleHand(Player.Hand);
+                return payout;
             }
-            else if (IsDealerBlackjack() && !IsPlayerBlackjack())
+
+            foreach (var hand in Player.Hands)
             {
-                payout -= Bet;
-            }
-            else if (Player.Hand.IsBust())
-            {
-                payout -= Bet;
-            }
-            else if (Dealer.Hand.IsBust())
-            {
-                payout += Bet;
-            }
-            else if (Player.Hand.GetScore() > Dealer.Hand.GetScore())
-            {
-                payout += Bet;
-            }
-            else if (Player.Hand.GetScore() < Dealer.Hand.GetScore())
-            {
-                payout -= Bet;
+                payout += SettleHand(hand);
             }
 
             return payout;
+        }
+
+        private int SettleHand(Hand hand)
+        {
+            if (hand.IsBust()) return -Bet;
+            if (Dealer.Hand.IsBust()) return Bet;
+
+            int ps = hand.GetScore();
+            int ds = Dealer.Hand.GetScore();
+
+            if (hand.IsBlackjack() && !SplitPerformed) return (int)(Bet * 1.5);
+            if (ps > ds) return Bet;
+            if (ps < ds) return -Bet;
+            return 0;
         }
 
         public int CalculateBlackjackPayout()

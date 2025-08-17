@@ -27,7 +27,10 @@ namespace BlackjackApp
 
         public bool HasSoft17()
         {
-            return GetScore() == 17 && Cards.Any(c => c.Rank == Rank.Ace);
+            int nonAces = Cards.Where(c => c.Rank != Rank.Ace).Sum(c => c.GetValue());
+            int aces = Cards.Count(c => c.Rank == Rank.Ace);
+            if (aces == 0) return false;
+            return nonAces + 11 + (aces - 1) == 17;
         }
 
         public bool IsBust() => GetScore() > 21;
