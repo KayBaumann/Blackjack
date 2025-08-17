@@ -1,7 +1,7 @@
 
 # ♠️ Blackjack WPF Game
 
-A desktop Blackjack game built with C# and WPF, simulating a realistic casino experience with chips, insurance, surrender, and more.
+A desktop Blackjack game built with C# and WPF, simulating a realistic casino experience with chips.
 
 ---
 
