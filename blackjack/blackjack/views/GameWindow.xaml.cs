@@ -1,4 +1,5 @@
 ﻿using BlackjackApp.classes;
+using BlackjackApp.helpers;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,9 @@ namespace BlackjackApp
         public GameWindow(string username)
         {
             InitializeComponent();
+            DatabaseHelper.EnsureChipsColumn();
             currentUsername = username;
+            chips = DatabaseHelper.GetChips(currentUsername, 1000);
             UpdateWelcomeText();
         }
 
@@ -45,6 +48,7 @@ namespace BlackjackApp
 
             currentBetPlaced = bet;
             chips -= bet;
+            DatabaseHelper.SetChips(currentUsername, chips);
             BetPanel.Visibility = Visibility.Collapsed;
             BackToMenuButton.Visibility = Visibility.Collapsed;
             UpdateWelcomeText();
@@ -92,6 +96,7 @@ namespace BlackjackApp
                     GameStatusTextBlock.Text += $"You win {result} chips.";
                 }
 
+                DatabaseHelper.SetChips(currentUsername, chips);
                 EndRoundUI();
                 UpdateWelcomeText();
                 return;
@@ -114,6 +119,7 @@ namespace BlackjackApp
                     GameStatusTextBlock.Text = $"Blackjack! You win {payout} chips.";
                 }
 
+                DatabaseHelper.SetChips(currentUsername, chips);
                 EndRoundUI();
             }
             else
@@ -182,6 +188,7 @@ namespace BlackjackApp
                 GameStatusTextBlock.Text += $"You win {result} chips.";
             }
 
+            DatabaseHelper.SetChips(currentUsername, chips);
             EndRoundUI();
             UpdateWelcomeText();
         }
@@ -196,6 +203,7 @@ namespace BlackjackApp
 
             chips -= game.Bet;
             currentBetPlaced += game.Bet;
+            DatabaseHelper.SetChips(currentUsername, chips);
 
             game.PlayerDouble();
             UpdateUI();
@@ -235,6 +243,7 @@ namespace BlackjackApp
             game.Surrender();
             GameStatusTextBlock.Text = "You surrendered. Half your bet is lost.";
             chips += game.CalculatePayout();
+            DatabaseHelper.SetChips(currentUsername, chips);
             game.RevealDealer();
             UpdateHandText();
             EndRoundUI();

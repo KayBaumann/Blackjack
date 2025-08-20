@@ -1,40 +1,46 @@
 ﻿using System;
+using System.Data;
 using System.Data.SQLite;
-using System.IO;
 
-namespace BlackjackApp
+namespace BlackjackApp.helpers
 {
     public static class DatabaseHelper
     {
-        private static string dbFile = "blackjack.db";
+        private static readonly string Cs = "Data Source=blackjack.db;Version=3;";
 
-        public static void InitializeDatabase()
+        public static void EnsureChipsColumn()
         {
-            if (!File.Exists(dbFile))
-            {
-                SQLiteConnection.CreateFile(dbFile);
-
-                using (var connection = new SQLiteConnection($"Data Source={dbFile};Version=3;"))
-                {
-                    connection.Open();
-
-                    string createTableQuery = @"CREATE TABLE Users (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Username TEXT NOT NULL UNIQUE,
-                        PasswordHash TEXT NOT NULL
-                    );";
-
-                    using (var command = new SQLiteCommand(createTableQuery, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
+            using var con = new SQLiteConnection(Cs);
+            con.Open();
+            using var cmd = new SQLiteCommand("PRAGMA table_info(Users);", con);
+            using var rd = cmd.ExecuteReader();
+            var has = false;
+            while (rd.Read())
+                if (string.Equals(rd["name"]?.ToString(), "Chips", StringComparison.OrdinalIgnoreCase))
+                    has = true;
+            if (!has)
+                new SQLiteCommand("ALTER TABLE Users ADD COLUMN Chips INTEGER NOT NULL DEFAULT 1000;", con).ExecuteNonQuery();
         }
 
-        public static SQLiteConnection GetConnection()
+        public static int GetChips(string username, int @default = 1000)
         {
-            return new SQLiteConnection($"Data Source={dbFile};Version=3;");
+            using var con = new SQLiteConnection(Cs);
+            con.Open();
+            using var cmd = new SQLiteCommand("SELECT Chips FROM Users WHERE Username=@u LIMIT 1;", con);
+            cmd.Parameters.AddWithValue("@u", username);
+            var obj = cmd.ExecuteScalar();
+            if (obj == null || obj == DBNull.Value) return @default;
+            return Convert.ToInt32(obj);
+        }
+
+        public static void SetChips(string username, int chips)
+        {
+            using var con = new SQLiteConnection(Cs);
+            con.Open();
+            using var cmd = new SQLiteCommand("UPDATE Users SET Chips=@c WHERE Username=@u;", con);
+            cmd.Parameters.AddWithValue("@c", chips);
+            cmd.Parameters.AddWithValue("@u", username);
+            cmd.ExecuteNonQuery();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Data.SQLite;
+using BlackjackApp.helpers;
 
 namespace BlackjackApp
 {
@@ -48,9 +49,13 @@ namespace BlackjackApp
                     try
                     {
                         command.ExecuteNonQuery();
+
+                        // Chips initialisieren (Default 1000)
+                        DatabaseHelper.EnsureChipsColumn();
+                        DatabaseHelper.SetChips(username, 1000);
+
                         MessageBox.Show("Registration successful!");
 
-                        // Nach erfolgreichem Registrieren zurück zum Login
                         LoginWindow loginWindow = new LoginWindow();
                         loginWindow.Show();
                         this.Close();
