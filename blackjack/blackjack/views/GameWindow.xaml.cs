@@ -8,7 +8,7 @@ namespace BlackjackApp
     public partial class GameWindow : Window
     {
         private bool isFullscreen = true;
-        private BlackjackGame game;
+        private BlackjackGame game = null!;
         private string currentUsername;
         private int chips = 1000;
         private bool insuranceOffered = false;
@@ -44,6 +44,7 @@ namespace BlackjackApp
             }
 
             currentBetPlaced = bet;
+            chips -= bet;
             BetPanel.Visibility = Visibility.Collapsed;
             BackToMenuButton.Visibility = Visibility.Collapsed;
             UpdateWelcomeText();
@@ -63,20 +64,53 @@ namespace BlackjackApp
                 insuranceOffered = false;
             }
 
+            if (game.Dealer.Hand.IsBlackjack() && !game.Player.Hand.IsBlackjack())
+            {
+                InsuranceButton.Visibility = Visibility.Collapsed;
+                game.RevealDealer();
+                UpdateUI();
+
+                int result = game.CalculatePayout();
+
+                if (game.InsuranceTaken && game.InsuranceWon)
+                    GameStatusTextBlock.Text = "Insurance won!\n";
+                else if (game.InsuranceTaken && !game.InsuranceWon)
+                    GameStatusTextBlock.Text = "Insurance lost.\n";
+
+                if (result < 0)
+                {
+                    GameStatusTextBlock.Text += $"You lose {-result} chips.";
+                }
+                else if (result == 0)
+                {
+                    chips += currentBetPlaced.Value;
+                    GameStatusTextBlock.Text += "Push.";
+                }
+                else
+                {
+                    chips += currentBetPlaced.Value + result;
+                    GameStatusTextBlock.Text += $"You win {result} chips.";
+                }
+
+                EndRoundUI();
+                UpdateWelcomeText();
+                return;
+            }
+
             if (game.Player.Hand.IsBlackjack())
             {
                 game.RevealDealer();
-                game.DealerTurn();
                 UpdateUI();
 
                 if (game.Dealer.Hand.IsBlackjack())
                 {
+                    chips += currentBetPlaced.Value;
                     GameStatusTextBlock.Text = "Push – Both have Blackjack!";
                 }
                 else
                 {
                     int payout = game.CalculateBlackjackPayout();
-                    chips += payout;
+                    chips += currentBetPlaced.Value + payout;
                     GameStatusTextBlock.Text = $"Blackjack! You win {payout} chips.";
                 }
 
@@ -107,7 +141,6 @@ namespace BlackjackApp
                 }
 
                 GameStatusTextBlock.Text = "Busted!";
-                chips -= game.Bet;
                 game.RevealDealer();
                 UpdateUI();
                 EndRoundUI();
@@ -119,7 +152,7 @@ namespace BlackjackApp
         {
             if (game.NextHand())
             {
-                GameStatusTextBlock.Text = $"Now playing hand {game.Player.ActiveHandIndex + 1}";
+                GameStatusTextBlock.Text = $"Standing. Now playing hand {game.Player.ActiveHandIndex + 1}";
                 UpdateUI();
                 ShowButtons();
                 return;
@@ -131,19 +164,24 @@ namespace BlackjackApp
 
             int result = game.CalculatePayout();
 
-            if (game.InsuranceTaken)
+            if (game.InsuranceTaken && game.InsuranceWon)
+                GameStatusTextBlock.Text = "Insurance won!\n";
+            else if (game.InsuranceTaken && !game.InsuranceWon)
+                GameStatusTextBlock.Text = "Insurance lost.\n";
+
+            if (result < 0)
+                GameStatusTextBlock.Text += $"You lose {-result} chips.";
+            else if (result == 0)
             {
-                GameStatusTextBlock.Text += game.InsuranceWon ? "Insurance won!\n" : "Insurance lost.\n";
+                chips += currentBetPlaced ?? 0;
+                GameStatusTextBlock.Text += "Push.";
+            }
+            else
+            {
+                chips += (currentBetPlaced ?? 0) + result;
+                GameStatusTextBlock.Text += $"You win {result} chips.";
             }
 
-            if (result > 0)
-                GameStatusTextBlock.Text += $"You win {result} chips!";
-            else if (result < 0)
-                GameStatusTextBlock.Text += $"You lose {-result} chips!";
-            else
-                GameStatusTextBlock.Text += "Draw!";
-
-            chips += result;
             EndRoundUI();
             UpdateWelcomeText();
         }
@@ -156,6 +194,9 @@ namespace BlackjackApp
                 return;
             }
 
+            chips -= game.Bet;
+            currentBetPlaced += game.Bet;
+
             game.PlayerDouble();
             UpdateUI();
             ShowButtons();
@@ -163,7 +204,6 @@ namespace BlackjackApp
             if (game.Player.Hand.IsBust())
             {
                 GameStatusTextBlock.Text = "Busted after Double Down!";
-                chips -= game.Bet;
                 game.RevealDealer();
                 UpdateUI();
                 EndRoundUI();
