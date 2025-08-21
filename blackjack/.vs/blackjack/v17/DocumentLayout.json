@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\views\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\views\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\views\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\classes\\blackjackgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\classes\\blackjackgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|c:\\users\\kaytr\\desktop\\projekte\\blackjack\\blackjack\\blackjack\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D665722B-1B2C-4BF6-94F0-A5B405B5BAB5}|blackjack\\blackjack.csproj|solutionrelative:blackjack\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,43 +43,56 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegisterWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\RegisterWindow.xaml.cs",
-              "RelativeDocumentMoniker": "blackjack\\views\\RegisterWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\RegisterWindow.xaml.cs",
-              "RelativeToolTip": "blackjack\\views\\RegisterWindow.xaml.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAIwFUAAAAAAAAA",
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\App.xaml.cs",
+              "RelativeDocumentMoniker": "blackjack\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\App.xaml.cs",
+              "RelativeToolTip": "blackjack\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T19:58:15.647Z",
+              "WhenOpened": "2025-08-21T10:54:12.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DatabaseHelper.cs",
-              "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\helpers\\DatabaseHelper.cs",
-              "RelativeDocumentMoniker": "blackjack\\helpers\\DatabaseHelper.cs",
-              "ToolTip": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\helpers\\DatabaseHelper.cs",
-              "RelativeToolTip": "blackjack\\helpers\\DatabaseHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T19:28:24.528Z",
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\App.xaml",
+              "RelativeDocumentMoniker": "blackjack\\App.xaml",
+              "ToolTip": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\App.xaml",
+              "RelativeToolTip": "blackjack\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-21T10:53:45.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "blackjack\\views\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\MainWindow.xaml.cs",
+              "RelativeToolTip": "blackjack\\views\\MainWindow.xaml.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAIwCsAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T10:46:23.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GameWindow.xaml",
               "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml",
               "RelativeDocumentMoniker": "blackjack\\views\\GameWindow.xaml",
               "ToolTip": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml",
               "RelativeToolTip": "blackjack\\views\\GameWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-15T12:05:26.007Z"
+              "WhenOpened": "2025-08-15T12:05:26.007Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "GameWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\views\\GameWindow.xaml.cs",
               "RelativeDocumentMoniker": "blackjack\\views\\GameWindow.xaml.cs",
@@ -83,12 +100,11 @@
               "RelativeToolTip": "blackjack\\views\\GameWindow.xaml.cs",
               "ViewState": "AQIAAEMBAAAAAAAAAAAIwE4BAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T11:40:11.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T11:40:11.07Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "BlackjackGame.cs",
               "DocumentMoniker": "C:\\Users\\kaytr\\Desktop\\Projekte\\Blackjack\\blackjack\\blackjack\\classes\\BlackjackGame.cs",
               "RelativeDocumentMoniker": "blackjack\\classes\\BlackjackGame.cs",

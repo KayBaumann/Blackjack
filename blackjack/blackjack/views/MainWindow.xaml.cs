@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using BlackjackApp.helpers;
 
 namespace BlackjackApp
 {
@@ -6,28 +7,29 @@ namespace BlackjackApp
     {
         private bool isFullscreen = true;
         private string currentUsername;
-        private int chips = 1000; // Startkapital
+        private int chips;
 
         public MainWindow(string username)
         {
             InitializeComponent();
             currentUsername = username;
+            chips = DatabaseHelper.GetChips(currentUsername, 1000);
             WelcomeTextBlock.Text = $"Welcome, {currentUsername}!";
             ChipsTextBlock.Text = $"Chips: {chips}";
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(currentUsername);
+            var gameWindow = new GameWindow(currentUsername);
             gameWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow login = new LoginWindow();
+            var login = new LoginWindow();
             login.Show();
-            this.Close();
+            Close();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

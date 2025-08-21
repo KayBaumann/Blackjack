@@ -8,6 +8,8 @@ namespace BlackjackApp.helpers
     {
         private static readonly string Cs = "Data Source=blackjack.db;Version=3;";
 
+        public static SQLiteConnection GetConnection() => new SQLiteConnection(Cs);
+
         public static void EnsureChipsColumn()
         {
             using var con = new SQLiteConnection(Cs);
@@ -20,6 +22,13 @@ namespace BlackjackApp.helpers
                     has = true;
             if (!has)
                 new SQLiteCommand("ALTER TABLE Users ADD COLUMN Chips INTEGER NOT NULL DEFAULT 1000;", con).ExecuteNonQuery();
+        }
+
+        public static void EnsureIndexes()
+        {
+            using var con = new SQLiteConnection(Cs);
+            con.Open();
+            new SQLiteCommand("CREATE INDEX IF NOT EXISTS idx_users_username ON Users(Username);", con).ExecuteNonQuery();
         }
 
         public static int GetChips(string username, int @default = 1000)

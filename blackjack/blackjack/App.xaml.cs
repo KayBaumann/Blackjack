@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using BlackjackApp.helpers;
 
-namespace blackjack
+namespace BlackjackApp
 {
     public partial class App : Application
     {

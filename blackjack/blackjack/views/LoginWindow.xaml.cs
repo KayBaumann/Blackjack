@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Data.SQLite;
-using blackjack;
+using BlackjackApp.helpers;
 
 namespace BlackjackApp
 {
@@ -32,20 +32,20 @@ namespace BlackjackApp
             using (var connection = DatabaseHelper.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM Users WHERE Username = @username AND PasswordHash = @passwordHash";
+                const string query = "SELECT COUNT(*) FROM Users WHERE Username = @username AND PasswordHash = @passwordHash";
 
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@passwordHash", hashedPassword);
 
-                    long count = (long)command.ExecuteScalar();
+                    var count = (long)command.ExecuteScalar();
                     if (count > 0)
                     {
                         MessageBox.Show("Login successful!");
                         MainWindow mainWindow = new MainWindow(username);
                         mainWindow.Show();
-                        this.Close();
+                        Close();
                     }
                     else
                     {
@@ -59,7 +59,7 @@ namespace BlackjackApp
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }
